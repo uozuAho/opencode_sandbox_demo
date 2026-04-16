@@ -1,0 +1,10 @@
+2026-04-15 08:01:12 INFO auth User login successful user=jane
+2026-04-15 08:03:45 DEBUG cache Cache miss for key=product:42
+2026-04-15 08:05:22 INFO api GET /api/products 200 12ms
+2026-04-15 08:07:01 WARNING db Slow query detected duration=3400ms query="SELECT * FROM orders"
+2026-04-15 08:10:33 INFO auth User login successful user=bob
+2026-04-15 08:12:45 ERROR payment Payment gateway timeout order_id=9981
+2026-04-15 08:15:02 INFO api POST /api/orders 201 45ms
+2026-04-15 08:18:19 CRITICAL db Connection pool exhausted max_connections=50
+2026-04-15 08:20:55 INFO api GET /api/users 200 8ms
+2026-04-15 08:22:10 WARNING auth Failed login attempt user=unknown ip=10.0.0.99
