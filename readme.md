@@ -7,9 +7,16 @@ A toy coding project to demonstrate opencode config, agents etc.
 See the makefile for more!
 
 # todo
-- can u get --prompt to work in sbx?
-- add some context to config
-- add some more to system prompt
+- try just
+  - quick "task": sbx run opencode -- run --agent coder "task"
+  - plan tasks/asdf.md: sbx run opencode --branch asdf -- run --agent planner "follow the instructions in $PATH"
+  - task tasks/asdf.md: ... --branch asdf -- run --agent coder ...
+- write some context docs for agents
+- working as expected?
+  - do agents read context?
+  - do coding agents run chekc, write PR.md etc?
+- update my opencode notes
+- push this repo - gihtub?
 
 # notes
 - model, $/M input, $/M output, weighted coding score from https://benchlm.ai/coding
