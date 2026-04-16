@@ -6,14 +6,4 @@
       }
     }
   }
-      // "models": {
-      //   "default": "z-ai/glm-5.1",
-      //   "fast": "openai/gpt-4o-mini",
-      //   "deep": "z-ai/glm-5.1",
-      //   "cheap": "mistralai/mistral-small"
-      // }
-  // "prompts": {
-  //   "system": "opencode/prompts/system.md",
-  //   "coding": "opencode/prompts/coding.md"
-  // }
 }

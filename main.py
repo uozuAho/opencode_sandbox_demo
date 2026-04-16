@@ -54,6 +54,7 @@ def summarize(entries: list[LogEntry]) -> None:
 
 
 def main() -> None:
+    print('yo')
     if len(sys.argv) < 2:
         print(f"Usage: {sys.argv[0]} <logfile>")
         sys.exit(1)
