@@ -2,6 +2,7 @@
 set -u
 
 TASK_PATH=$1
+MODEL=$2
 TASK_FILENAME=$(basename $TASK_PATH)
 TASK_NAME=${TASK_FILENAME%.md}
 
@@ -15,4 +16,6 @@ if ! git diff --quiet HEAD -- "$TASK_PATH"; then
     exit 1
 fi
 
-sbx run opencode --branch $TASK_NAME -- run --agent coder "follow the instructions in ./$TASK_PATH"
+sbx run opencode --branch $TASK_NAME -- run --agent coder \
+  --model $MODEL \
+  "follow the instructions in $TASK_PATH"

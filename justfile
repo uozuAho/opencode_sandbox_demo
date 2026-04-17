@@ -9,10 +9,8 @@ check-all:
   uv run ty check
 
 # get coder agent to do TASK in this dir, no branch
-quick TASK:
-  sbx run opencode -- run --agent coder \
-    --model openrouter/anthropic/claude-sonnet-4.6 \
-    "{{TASK}}"
+quick TASK MODEL='kimi':
+  ./scripts/sbx-quick.sh coder {{MODEL}} "{{TASK}}"
 
 # get coder agent to follow instructions in PATH
 task PATH:

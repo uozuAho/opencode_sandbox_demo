@@ -15,7 +15,7 @@ just check-all
 ```
 
 # todo
-- model aliases?
+- add models below to utils
   - try some free models. providers: opencode, openrouter, more?
 - write some context docs for agents
 - working as expected?
