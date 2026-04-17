@@ -15,10 +15,8 @@ just check-all
 ```
 
 # todo
-- try just
-  - quick "task": sbx run opencode -- run --agent coder "task"
-  - plan tasks/asdf.md: sbx run opencode --branch asdf -- run --agent planner "follow the instructions in $PATH"
-  - task tasks/asdf.md: ... --branch asdf -- run --agent coder ...
+- model aliases?
+  - try some free models. providers: opencode, openrouter, more?
 - write some context docs for agents
 - working as expected?
   - do agents read context?
@@ -26,6 +24,7 @@ just check-all
 - try differnt models
 - update my opencode notes
 - push this repo - gihtub?
+- maube: add autocomplete to just
 
 # notes
 - model, $/M input, $/M output, weighted coding score from https://benchlm.ai/coding

@@ -8,11 +8,16 @@ check-all:
   uv run ruff check --fix
   uv run ty check
 
+# get coder agent to do TASK in this dir, no branch
 quick TASK:
-  sbx run opencode -- run --agent coder "{{TASK}}"
+  sbx run opencode -- run --agent coder \
+    --model openrouter/anthropic/claude-sonnet-4.6 \
+    "{{TASK}}"
 
+# get coder agent to follow instructions in PATH
 task PATH:
   ./scripts/sbx-do.sh {{PATH}}
 
+# merge a task branch and remove it
 approve PATH MSG:
   ./scripts/sbx-approve.sh {{PATH}} "{{MSG}}"
