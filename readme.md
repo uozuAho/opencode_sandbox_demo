@@ -2,9 +2,13 @@
 
 A toy coding project to demonstrate opencode config, agents etc.
 
-`make run`
+Install [just](https://github.com/casey/just), then:
 
-See the makefile for more!
+```sh
+just -l
+just run
+just check-all
+```
 
 # todo
 - try just
@@ -15,6 +19,7 @@ See the makefile for more!
 - working as expected?
   - do agents read context?
   - do coding agents run chekc, write PR.md etc?
+- try differnt models
 - update my opencode notes
 - push this repo - gihtub?
 
