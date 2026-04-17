@@ -2,7 +2,11 @@
 
 A toy coding project to demonstrate opencode config, agents etc.
 
-Install [just](https://github.com/casey/just), then:
+Install
+- [just](https://github.com/casey/just)
+- [docker sandboxes](https://docs.docker.com/ai/sandboxes/)
+
+then:
 
 ```sh
 just -l
