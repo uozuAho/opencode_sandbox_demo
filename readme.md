@@ -15,10 +15,12 @@ just check-all
 ```
 
 # todo
-- working as expected?
-  - do agents read context?
-  - do coding agents run chekc, write PR.md etc?
-- try differnt models
+- WIP try differnt models
+  - working as expected?
+    - do agents read context?
+    - do coding agents run chekc, write PR.md etc?
+      - minimax: nope
 - update my opencode notes
+- update this readme with basic instructions, notes
 - push this repo - gihtub?
 - maube: add autocomplete to just
