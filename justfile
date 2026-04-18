@@ -9,7 +9,7 @@ check-all:
   uv run ty check
 
 # get coder agent to do TASK in this dir, no branch
-quick TASK MODEL='kimi':
+quick TASK MODEL='minimax27':
   ./scripts/sbx-quick.sh coder {{MODEL}} "{{TASK}}"
 
 # get coder agent to follow instructions in PATH
