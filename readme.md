@@ -13,6 +13,15 @@ Get some [openrouter](https://openrouter.ai/) credits + API key, then:
 ```sh
 echo "export OPENROUTER_API_KEY=<my api key>" >> ~/.bashrc
 
+# I don't think sbx forwards the api key. If not, enter
+# it manually:
+sbx run opencode
+# - start opencode tui
+# - select /connect
+# - select openrouter
+# - enter your api key
+# - exit
+
 # check everything's working locally:
 just check-all
 

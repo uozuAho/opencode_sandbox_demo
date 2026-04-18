@@ -9,11 +9,11 @@ check-all:
   uv run ty check
 
 # get coder agent to do TASK in this dir, no branch
-quick TASK MODEL='minimax27':
+quick TASK MODEL='gpt-54-mini':
   ./scripts/sbx-quick.sh coder {{MODEL}} "{{TASK}}"
 
 # get coder agent to follow instructions in PATH
-task PATH MODEL='minimax27':
+task PATH MODEL='gpt-54-mini':
   ./scripts/sbx-do.sh coder {{MODEL}} {{PATH}}
 
 # merge a task branch and remove it
