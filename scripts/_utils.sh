@@ -5,14 +5,14 @@ function expandModel {
     # these are solid: pass the poop test, follow instructions
     # .75/4.5, 51.5
     gpt-54-mini) echo "openrouter/openai/gpt-5.4-mini" ;;
+    # 1/3.1, 43.4
+    glm51) echo "openrouter/z-ai/glm-5.1" ;;
     # 3/15, 50.9
     sonnet46) echo "openrouter/anthropic/claude-sonnet-4.6" ;;
 
     # yet to assess
     # 1.8/14, 53.1
     gpt-53-codex) echo "openrouter/openai/gpt-5.3-codex" ;;
-    # 1/3.1, 43.4
-    glm51) echo "openrouter/z-ai/glm-5.1" ;;
 
     # free, probably not good for coding, maybe?
     # 39.5
