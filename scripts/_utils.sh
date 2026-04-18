@@ -8,8 +8,6 @@ function expandModel {
     gpt-53-codex) echo "openrouter/openai/gpt-5.3-codex" ;;
     # 3/15, 50.9
     sonnet46) echo "openrouter/anthropic/claude-sonnet-4.6" ;;
-    # .3/1.2, 41.9
-    minimax27) echo "openrouter/minimax/minimax-m2.7" ;;
     # 1/3.1, 43.4
     glm51) echo "openrouter/z-ai/glm-5.1" ;;
 
@@ -22,5 +20,11 @@ function expandModel {
     minimax25) echo "openrouter/minimax/minimax-m2.5:free" ;;
 
     *) echo "Invalid model name $1" >&2; return 1 ;;
+
+    # don't use, rubbish
+    # .3/1.2, 41.9
+    # doesn't follow all instructions in coder agent context
+    # poop test: "print poop in main" -> adds "print(poop)"
+    minimax27) echo "openrouter/minimax/minimax-m2.7" ;;
   esac
 }

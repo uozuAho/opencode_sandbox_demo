@@ -15,11 +15,6 @@ just check-all
 ```
 
 # todo
-- try some just tasks with minimax
-  - task - echo first to ensure it looks correct
-  - approve - echo first to ensure it looks correct
-- write some context docs for agents
-  - https://opencode.ai/docs/rules/
 - working as expected?
   - do agents read context?
   - do coding agents run chekc, write PR.md etc?
