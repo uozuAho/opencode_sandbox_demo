@@ -8,9 +8,11 @@ Install:
 - [just](https://github.com/casey/just)
 - [docker sandboxes](https://docs.docker.com/ai/sandboxes/)
 
-Get some openrouter credits, then:
+Get some [openrouter](https://openrouter.ai/) credits + API key, then:
 
 ```sh
+echo "export OPENROUTER_API_KEY=<my api key>" >> ~/.bashrc
+
 # check everything's working locally:
 just check-all
 
@@ -41,12 +43,15 @@ just task tasks/poop.md
 just approve tasks/poop.md "added poop"
 ```
 
+
 # A bit more info
+
 ## The poop test
 A very basic agent test:
 - prompt it to "print poop in the main function"
 - success = print("poop") added somewhere to main
 - follows other instructions in .opencode/agents/coder.md
+
 ## OpenCode basics
 - ./AGENTS.md is fed to all agents
 - ./opencode/agents contains specific agent prompts. To use
