@@ -1,4 +1,4 @@
-# $input/output, coding index from openrouter benchmark
+# $input/output, coding index from https://openrouter.ai/rankings?benchmark=coding
 # in rough order of value - strength per cost
 function expandModel {
   case "$1" in

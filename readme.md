@@ -23,7 +23,7 @@ sudo apt install just
 exit
 sbx policy rm network --resource archive.ubuntu.com
 
-# example task delegation to sandboxed agents:
+# example delegation of "the poop test" to sandboxed agents:
 # quick task, do work in the current branch
 just quick "print poop in the main function"
 
@@ -33,6 +33,12 @@ just task tasks/poop.md
 
 just approve tasks/poop.md "added poop"
 ```
+
+# notes
+I mention "the poop test" here and there. This is a basic agent test:
+- prompt it to "print poop in the main function"
+- success = print("poop") added somewhere to main
+- follows other instructions in .opencode/agents/coder.md
 
 # todo
 - WIP try differnt models
