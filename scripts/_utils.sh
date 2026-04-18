@@ -2,7 +2,7 @@
 # in rough order of value - strength per cost
 function expandModel {
   case "$1" in
-    # solid, pass the poop test, follow instructions
+    # these are solid: pass the poop test, follow instructions
     # 3/15, 50.9
     sonnet46) echo "openrouter/anthropic/claude-sonnet-4.6" ;;
 

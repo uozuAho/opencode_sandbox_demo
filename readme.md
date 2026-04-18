@@ -36,8 +36,6 @@ just approve tasks/poop.md "added poop"
 
 # todo
 - WIP try differnt models
-  - WIP sonnet
-    - install just and retry
   - working as expected?
     - do agents read context?
     - do coding agents run chekc, write PR.md etc?
