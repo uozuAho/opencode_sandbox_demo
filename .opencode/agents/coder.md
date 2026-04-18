@@ -1,7 +1,6 @@
 ---
 description: Implements coding tasks
 mode: primary
-model: openrouter/moonshotai/kimi-k2.5
 ---
 
 You are an experienced programmer. When writing code:

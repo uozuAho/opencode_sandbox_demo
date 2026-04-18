@@ -22,6 +22,7 @@ just check-all
   - task - echo first to ensure it looks correct
   - approve - echo first to ensure it looks correct
 - write some context docs for agents
+  - https://opencode.ai/docs/rules/
 - working as expected?
   - do agents read context?
   - do coding agents run chekc, write PR.md etc?
