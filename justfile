@@ -13,8 +13,8 @@ quick TASK MODEL='minimax27':
   ./scripts/sbx-quick.sh coder {{MODEL}} "{{TASK}}"
 
 # get coder agent to follow instructions in PATH
-task PATH:
-  ./scripts/sbx-do.sh {{PATH}}
+task PATH MODEL='minimax27':
+  ./scripts/sbx-do.sh coder {{MODEL}} {{PATH}}
 
 # merge a task branch and remove it
 approve PATH MSG:

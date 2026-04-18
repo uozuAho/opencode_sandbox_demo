@@ -1,10 +1,16 @@
 #!/bin/bash
 set -u
 
-TASK_PATH=$1
-MODEL=$2
+SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
+source $SCRIPT_DIR/_utils.sh
+
+AGENT=$1
+MODEL_LABEL=$2
+TASK_PATH=$3
 TASK_FILENAME=$(basename $TASK_PATH)
 TASK_NAME=${TASK_FILENAME%.md}
+
+MODEL=$(expandModel $MODEL_LABEL)
 
 if ! git ls-files --error-unmatch "$TASK_PATH" &>/dev/null; then
     echo "Error: $TASK_PATH has not been committed to the current working tree"
@@ -16,6 +22,6 @@ if ! git diff --quiet HEAD -- "$TASK_PATH"; then
     exit 1
 fi
 
-sbx run opencode --branch $TASK_NAME -- run --agent coder \
-  --model $MODEL \
+echo sbx run opencode --branch $TASK_NAME -- \
+  run --agent $AGENT --model $MODEL \
   "follow the instructions in $TASK_PATH"

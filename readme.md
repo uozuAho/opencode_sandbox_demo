@@ -15,10 +15,7 @@ just check-all
 ```
 
 # todo
-- WIP minimax fails the poop test?
-  - try adding a bit more system context
 - try some just tasks with minimax
-  - WIP quikc
   - task - echo first to ensure it looks correct
   - approve - echo first to ensure it looks correct
 - write some context docs for agents
