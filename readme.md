@@ -15,10 +15,12 @@ just check-all
 ```
 
 # todo
+- WIP minimax fails the poop test?
+  - try adding a bit more system context
 - try some just tasks with minimax
-  - quikc
-  - task
-  - approve
+  - WIP quikc
+  - task - echo first to ensure it looks correct
+  - approve - echo first to ensure it looks correct
 - write some context docs for agents
 - working as expected?
   - do agents read context?

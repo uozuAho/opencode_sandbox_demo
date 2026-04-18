@@ -11,4 +11,4 @@ TASK=$3
 MODEL=$(expandModel $MODEL_LABEL)
 
 sbx run opencode -- \
-  run --agent $AGENT --model $MODEL "{{TASK}}"
+  run --agent $AGENT --model $MODEL \"$TASK\"
