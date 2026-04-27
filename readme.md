@@ -50,6 +50,12 @@ just task tasks/poop.md
 
 # once you're happy with the change, commit it, then:
 just approve tasks/poop.md "added poop"
+
+# or if you don't like it, reject and delete it
+just reject tasks/poop.md
+
+# for more, see
+just -l
 ```
 
 
