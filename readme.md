@@ -73,3 +73,7 @@ A very basic agent test:
   a specific agent, run `opencode run --agent AGENT "prompt"`.
   Note that the justfile + scripts in this project make this
   a little easier.
+
+
+# todo
+- add an automated benchmark to test new LLMs/agents/clis
