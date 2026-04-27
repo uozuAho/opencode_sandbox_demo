@@ -2,7 +2,7 @@
 set -u
 
 SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
-source $SCRIPT_DIR/_utils.sh
+source $SCRIPT_DIR/_common.sh
 
 AGENT=$1
 MODEL_LABEL=$2
