@@ -76,9 +76,11 @@ A very basic agent test:
 
 
 # todo
-- custom env with: https://docs.docker.com/ai/sandboxes/agents/custom-environments/
+- WIP custom env with: https://docs.docker.com/ai/sandboxes/agents/custom-environments/
     - OPENROUTER_API_KEY
     - just preinstalled
+    - see custom3 worktree
+- add just ask from dwg
 - ability to run 'just quick' tasks within a worktree
     - maybe custom env will solve this
 - add an automated benchmark to test new LLMs/agents/clis
