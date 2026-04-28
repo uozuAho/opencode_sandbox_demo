@@ -78,8 +78,9 @@ A very basic agent test:
 # todo
 - WIP custom env: https://docs.docker.com/ai/sandboxes/agents/custom-environments/
     - with
-      - OPENROUTER_API_KEY
-      - just preinstalled
+        - OPENROUTER_API_KEY
+        - just preinstalled
+    - see dockerfile, docs
 - add just ask from dwg
 - ability to run 'just quick' tasks within a worktree
     - maybe custom env will solve this
