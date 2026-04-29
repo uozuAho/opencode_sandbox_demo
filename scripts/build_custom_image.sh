@@ -1,3 +1,3 @@
 #!/bin/bash
 # RUN FROM PROJECT ROOT
-docker build -t opencode-woz .
+docker buildx build -t opencode-woz .

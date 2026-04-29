@@ -60,16 +60,45 @@ just -l
 
 
 # WIP - custom image
-Build a custom sandbox image with `just` installed and `OPENROUTER_API_KEY`
+MAYBE? Build a custom sandbox image with `just` installed and `OPENROUTER_API_KEY`
 available for use.
 
+Or use a kit
+
 ```sh
-./scripts/build_custom_image.sh
-sbx run --template opencode-woz opencode
+# custom image: requires push to registry blergh
+# ./scripts/build_custom_image.sh
+# sbx run --template opencode-woz opencode
+
+# alternative: kit ARRGGHHH unknown flag --kit
+sbx run opencode --kit ./mykit/
+
 # check just is available:
 sbx ls
 sbx exec -it <sandbox-name> bash -lc 'just --version'
 ```
+
+
+# WIP saving a sandbox as a template
+```sh
+sbx run opencode
+# - start opencode tui
+# - select /connect
+# - select openrouter
+# - enter your api key
+# - exit
+
+# install just in the sandbox:
+sbx policy allow network archive.ubuntu.com
+sbx exec -it opencode-opencode-demo sudo apt-get update
+sbx exec -it opencode-opencode-demo sudo apt-get install -y just
+sbx policy rm network --resource archive.ubuntu.com
+
+# check just + api key are working
+just quick "run `just check-all`"
+```
+
+
 
 
 # A bit more info
@@ -89,11 +118,17 @@ A very basic agent test:
 
 
 # todo
-- WIP custom env: https://docs.docker.com/ai/sandboxes/agents/custom-environments/
-    - with
-        - OPENROUTER_API_KEY
-        - just preinstalled
-    - see dockerfile, docs
+- WIP preinstall just + openrouter api key
+    - todo
+        - save sbx as template? https://docs.docker.com/ai/sandboxes/customize/templates/#saving-a-sandbox-as-a-template
+        - clean up docs once you get something working
+        - get rid of openrouter api key env var
+        - rm dockerfile etc
+    - options
+        - custom env? https://docs.docker.com/ai/sandboxes/agents/custom-environments/
+            - nah have to push to registry
+        - kit? https://docs.docker.com/ai/sandboxes/customize/kits/
+            - nah doesn't work (too new?)
 - add just ask from dwg
 - ability to run 'just quick' tasks within a worktree
     - maybe custom env will solve this
