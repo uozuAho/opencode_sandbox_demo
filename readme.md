@@ -59,6 +59,19 @@ just -l
 ```
 
 
+# WIP - custom image
+Build a custom sandbox image with `just` installed and `OPENROUTER_API_KEY`
+available for use.
+
+```sh
+./scripts/build_custom_image.sh
+sbx run --template opencode-woz opencode
+# check just is available:
+sbx ls
+sbx exec -it <sandbox-name> bash -lc 'just --version'
+```
+
+
 # A bit more info
 
 ## The poop test
