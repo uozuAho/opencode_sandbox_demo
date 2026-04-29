@@ -95,10 +95,17 @@ sbx exec -it opencode-opencode-demo sudo apt-get install -y just
 sbx policy rm network --resource archive.ubuntu.com
 
 # check just + api key are working
-just quick "run `just check-all`"
+just quick "run just check-all"
+
+# save as a template
+sbx template save opencode-opencode-demo oc-or-just
+
+# test it out
+sbx rm opencode-opencode-demo
+sbx run -t docker.io/library/oc-or-just:latest opencode -- \
+    run --model openrouter/openai/gpt-5.4-mini \
+    "run just check-all"
 ```
-
-
 
 
 # A bit more info
@@ -120,15 +127,17 @@ A very basic agent test:
 # todo
 - WIP preinstall just + openrouter api key
     - todo
-        - save sbx as template? https://docs.docker.com/ai/sandboxes/customize/templates/#saving-a-sandbox-as-a-template
+        - DONE save sbx as template? https://docs.docker.com/ai/sandboxes/customize/templates/#saving-a-sandbox-as-a-template
         - clean up docs once you get something working
         - get rid of openrouter api key env var
         - rm dockerfile etc
-    - options
+    - discarded options
         - custom env? https://docs.docker.com/ai/sandboxes/agents/custom-environments/
             - nah have to push to registry
         - kit? https://docs.docker.com/ai/sandboxes/customize/kits/
             - nah doesn't work (too new?)
+- centralise this proj so that you don't have to copy scripts etc to other proj
+    - ie. make a bunch of aliases to run the agents etc in this project
 - add just ask from dwg
 - ability to run 'just quick' tasks within a worktree
     - maybe custom env will solve this
