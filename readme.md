@@ -13,8 +13,9 @@ Get some [openrouter](https://openrouter.ai/) credits + API key, then:
 
 
 ## first run only - create sandbox template with `just` and API key
-Note, there's probably a way to automate this. See more options
-discussed below in "custom sandboxes".
+Note: this requires one time manual work and annoying scripts to
+ensure the expected sandbox exists. TODO: make this easier, maybe
+use kits? See "custom sandboxes" below.
 
 ```sh
 sbx run opencode
@@ -36,6 +37,10 @@ sbx run opencode -- \
 
 # save as a template
 sbx template save opencode-opencode-demo opencode-openrouter-just
+
+# remove the sandbox so that it can be recreated using the template
+# (otherwise commands below fail)
+sbx rm opencode-opencode-demo
 ```
 
 
@@ -44,9 +49,11 @@ Now you have a sandbox template with `just` installed and OpenRouter
 API key configured. Let's do some work!
 
 ```sh
-# check check that your config is correct, and to create a sandbox
-# for the step below:
-just quick "list all your instructions" kimi
+# ensure just is installed in the sandbox
+just quick "run just check-all"
+
+# check instructions are correct
+just quick "list all your instructions"
 
 # run "the poop test": check if models can do what they're told:
 # quick run in the current working branch
@@ -89,15 +96,16 @@ to do once.
 
 Alternatives:
 
+- kit? https://docs.docker.com/ai/sandboxes/customize/kits/
+    - try again now that you've got latest sbx version
+    - how to get API key in safely & without manual intervention?
 - custom env? https://docs.docker.com/ai/sandboxes/agents/custom-environments/
     - nah have to push to registry
-- kit? https://docs.docker.com/ai/sandboxes/customize/kits/
-    - nah doesn't work (too new?). I didn't spend much time on this, may work
 
 # todo
-- WIP clean up docs once you get something working
-- fix scripts and justfile to use custom template
-    - test
+- WIP fix scripts and justfile to use custom template
+    - WIP check all justs from task
+    - test in another project: call this proj's scripts from there
 - get rid of openrouter api key env var
 - centralise this proj so that you don't have to copy scripts etc to other proj
     - ie. make a bunch of aliases to run the agents etc in this project
@@ -105,3 +113,4 @@ Alternatives:
 - ability to run 'just quick' tasks within a worktree
     - maybe custom env will solve this
 - add an automated benchmark to test new LLMs/agents/clis
+- maybe: better way to create & run custom sandboxes

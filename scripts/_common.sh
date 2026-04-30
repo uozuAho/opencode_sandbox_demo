@@ -32,3 +32,31 @@ function expandModel {
     minimax27) echo "openrouter/minimax/minimax-m2.7" ;;
   esac
 }
+
+function expectedSandboxName {
+    cwd=$(pwd)
+    expected_sandbox=opencode-$(basename $cwd)
+    echo $expected_sandbox | tr '_' '-'
+}
+
+EXPECTED_SANDBOX_NAME=$(expectedSandboxName)
+
+function ensureSandboxExists {
+    if ! sbx ls | grep -q "$EXPECTED_SANDBOX_NAME"; then
+        echo "Expected sandbox $EXPECTED_SANDBOX_NAME not found, creating..."
+        sbx create -t $CUSTOM_TEMPLATE opencode .
+    fi
+    echo "Expected sandbox exists: $EXPECTED_SANDBOX_NAME"
+}
+
+function runSbxCustom {
+    ensureSandboxExists
+    sbx run "$EXPECTED_SANDBOX_NAME" -- run "$@"
+}
+
+function runSbxCustomBranch {
+    branch=$1
+    shift
+    ensureSandboxExists
+    sbx run "$EXPECTED_SANDBOX_NAME" --branch "$branch" -- run "$@"
+}

@@ -10,5 +10,4 @@ TASK=$3
 
 MODEL=$(expandModel $MODEL_LABEL)
 
-sbx run -t $CUSTOM_TEMPLATE opencode -- \
-  run --agent $AGENT --model $MODEL \"$TASK\"
+runSbxCustom --agent $AGENT --model $MODEL \"$TASK\"

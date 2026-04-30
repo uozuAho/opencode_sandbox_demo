@@ -22,6 +22,5 @@ if ! git diff --quiet HEAD -- "$TASK_PATH"; then
     exit 1
 fi
 
-sbx run -t $CUSTOM_TEMPLATE opencode --branch $TASK_NAME -- \
-  run --agent $AGENT --model $MODEL \
-  "follow the instructions in $TASK_PATH"
+runSbxCustomBranch $TASK_NAME --agent $AGENT --model $MODEL \
+    "follow the instructions in $TASK_PATH"
