@@ -98,7 +98,7 @@ Alternatives:
     - nah have to push to registry
 
 # todo
-- add just ask from dwg
+- add ask & quickpath from dwg
 - centralise this proj so that you don't have to copy scripts etc to other proj
     - ie. make a bunch of aliases to run the agents etc in this project
 - ability to run 'just quick' tasks within a worktree
