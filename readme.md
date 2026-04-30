@@ -1,6 +1,8 @@
-# Opencode demo project
+# Sandboxed opencode runner
 
-A toy coding project to demonstrate sandboxed opencode agents.
+Provides a convenient way to run sandboxed opencode locally, using
+[openrouter](https://openrouter.ai/). Uses
+[docker sandboxes](https://docs.docker.com/ai/sandboxes/).
 
 # quick start
 Install:
@@ -76,13 +78,6 @@ just -l
 
 
 # More info
-
-## The poop test
-A very basic agent test:
-- prompt it to "print poop in the main function"
-- success = print("poop") added somewhere to main
-- follows other instructions in .opencode/agents/coder.md
-
 ## OpenCode basics
 - ./AGENTS.md is fed to all agents
 - ./opencode/agents contains specific agent prompts. To use
@@ -103,9 +98,9 @@ Alternatives:
     - nah have to push to registry
 
 # todo
+- add just ask from dwg
 - centralise this proj so that you don't have to copy scripts etc to other proj
     - ie. make a bunch of aliases to run the agents etc in this project
-- add just ask from dwg
 - ability to run 'just quick' tasks within a worktree
     - maybe custom env will solve this
 - add an automated benchmark to test new LLMs/agents/clis
