@@ -61,7 +61,7 @@ just quick "print poop in the main function"
 
 # do a longer task in a git worktree
 echo "print poop in the main function" > tasks/poop.md
-git add . && git commit "add poop task"
+git add . && git commit -m "add poop task"
 just task tasks/poop.md
 
 # once you're happy with the change, commit it, then:
