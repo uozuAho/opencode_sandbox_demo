@@ -103,9 +103,6 @@ Alternatives:
     - nah have to push to registry
 
 # todo
-- WIP fix scripts and justfile to use custom template
-    - WIP check all justs from task
-    - test in another project: call this proj's scripts from there
 - get rid of openrouter api key env var
 - centralise this proj so that you don't have to copy scripts etc to other proj
     - ie. make a bunch of aliases to run the agents etc in this project
