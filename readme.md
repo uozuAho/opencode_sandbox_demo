@@ -103,7 +103,6 @@ Alternatives:
     - nah have to push to registry
 
 # todo
-- get rid of openrouter api key env var
 - centralise this proj so that you don't have to copy scripts etc to other proj
     - ie. make a bunch of aliases to run the agents etc in this project
 - add just ask from dwg
