@@ -1,0 +1,7 @@
+[project]
+name = "sandboxed-opencode"
+version = "0.1.0"
+description = "Convenient runner for opencode in docker sandboxes"
+readme = "readme.md"
+requires-python = ">=3.14"
+dependencies = []
