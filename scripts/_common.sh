@@ -1,4 +1,5 @@
 SBX_ROOT=.sbx/opencode-opencode-demo-worktrees
+CUSTOM_TEMPLATE=docker.io/library/opencode-openrouter-just:latest
 
 # $input/output, coding index from https://openrouter.ai/rankings?benchmark=coding
 # in rough order of value - strength per cost

@@ -1,5 +1,5 @@
 #!/bin/bash
-set -u
+set -eu
 
 SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 source $SCRIPT_DIR/_common.sh
@@ -10,5 +10,5 @@ TASK=$3
 
 MODEL=$(expandModel $MODEL_LABEL)
 
-sbx run opencode -- \
+sbx run -t $CUSTOM_TEMPLATE opencode -- \
   run --agent $AGENT --model $MODEL \"$TASK\"

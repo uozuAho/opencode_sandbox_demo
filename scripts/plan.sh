@@ -24,5 +24,5 @@ if [ -f "plan.md" ]; then
   esac
 fi
 
-sbx run opencode -- \
+sbx run -t $CUSTOM_TEMPLATE opencode -- \
   run --agent $AGENT --model $MODEL \"$PROMPT\"
