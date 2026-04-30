@@ -9,15 +9,15 @@ check-all:
   uv run ty check
 
 # get the planning agent to write up an implementation plan
-plan PROMPT MODEL='gpt-54-mini':
+plan PROMPT MODEL='gptmini':
   ./scripts/plan.sh planner {{MODEL}} "{{PROMPT}}"
 
 # get coder agent to do TASK in this dir, no branch
-quick TASK MODEL='gpt-54-mini':
+quick TASK MODEL='gptmini':
   ./scripts/quick.sh coder {{MODEL}} "{{TASK}}"
 
 # get coder agent to follow instructions in PATH
-task PATH MODEL='gpt-54-mini':
+task PATH MODEL='gptmini':
   ./scripts/task.sh coder {{MODEL}} {{PATH}}
 
 # merge a task branch and remove it
