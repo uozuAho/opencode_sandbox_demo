@@ -7,37 +7,53 @@ Install:
 - [uv](https://docs.astral.sh/uv/)
 - [just](https://github.com/casey/just)
 - [docker sandboxes](https://docs.docker.com/ai/sandboxes/)
+    - I chose restrictive network - nothing allowed. Whitelist as I go.
 
 Get some [openrouter](https://openrouter.ai/) credits + API key, then:
 
-```sh
-echo "export OPENROUTER_API_KEY=<my api key>" >> ~/.bashrc
 
-# I don't think sbx forwards the api key. If not, enter
-# it manually:
+## first run only - create sandbox template with `just` and API key
+Note: this requires one time manual work and annoying scripts to
+ensure the expected sandbox exists. TODO: make this easier, maybe
+use kits? See "custom sandboxes" below.
+
+```sh
 sbx run opencode
 # - start opencode tui
 # - select /connect
-# - select openrouter
+# - search and select openrouter
 # - enter your api key
 # - exit
 
-# check everything's working locally:
-just check-all
-
-# check check that your config is correct, and to create a sandbox
-# for the step below:
-just quick "list all your instructions" kimi
-
-# install just in the sandbox:
+# install just in the sandbox
 sbx policy allow network archive.ubuntu.com
-sbx ls   # find your sandbox name
-sbx exec -it <sandbox name> bash
-apt update
-sudo apt install just
-exit
+sbx exec -it opencode-opencode-demo sudo apt-get update
+sbx exec -it opencode-opencode-demo sudo apt-get install -y just
 sbx policy rm network --resource archive.ubuntu.com
-# TODO later: custom env with just preinstalled: https://docs.docker.com/ai/sandboxes/agents/custom-environments/
+
+# check just + api key are working - get agent to run a just task
+sbx run opencode -- \
+  run --model openrouter/openai/gpt-5.4-mini "run just check-all"
+
+# save as a template
+sbx template save opencode-opencode-demo opencode-openrouter-just
+
+# remove the sandbox so that it can be recreated using the template
+# (otherwise commands below fail)
+sbx rm opencode-opencode-demo
+```
+
+
+## subsequent runs
+Now you have a sandbox template with `just` installed and OpenRouter
+API key configured. Let's do some work!
+
+```sh
+# ensure just is installed in the sandbox
+just quick "run just check-all"
+
+# check instructions are correct
+just quick "list all your instructions"
 
 # run "the poop test": check if models can do what they're told:
 # quick run in the current working branch
@@ -45,7 +61,7 @@ just quick "print poop in the main function"
 
 # do a longer task in a git worktree
 echo "print poop in the main function" > tasks/poop.md
-git add . && git commit "add poop task"
+git add . && git commit -m "add poop task"
 just task tasks/poop.md
 
 # once you're happy with the change, commit it, then:
@@ -59,56 +75,7 @@ just -l
 ```
 
 
-# WIP - custom image
-MAYBE? Build a custom sandbox image with `just` installed and `OPENROUTER_API_KEY`
-available for use.
-
-Or use a kit
-
-```sh
-# custom image: requires push to registry blergh
-# ./scripts/build_custom_image.sh
-# sbx run --template opencode-woz opencode
-
-# alternative: kit ARRGGHHH unknown flag --kit
-sbx run opencode --kit ./mykit/
-
-# check just is available:
-sbx ls
-sbx exec -it <sandbox-name> bash -lc 'just --version'
-```
-
-
-# WIP saving a sandbox as a template
-```sh
-sbx run opencode
-# - start opencode tui
-# - select /connect
-# - select openrouter
-# - enter your api key
-# - exit
-
-# install just in the sandbox:
-sbx policy allow network archive.ubuntu.com
-sbx exec -it opencode-opencode-demo sudo apt-get update
-sbx exec -it opencode-opencode-demo sudo apt-get install -y just
-sbx policy rm network --resource archive.ubuntu.com
-
-# check just + api key are working
-just quick "run just check-all"
-
-# save as a template
-sbx template save opencode-opencode-demo oc-or-just
-
-# test it out
-sbx rm opencode-opencode-demo
-sbx run -t docker.io/library/oc-or-just:latest opencode -- \
-    run --model openrouter/openai/gpt-5.4-mini \
-    "run just check-all"
-```
-
-
-# A bit more info
+# More info
 
 ## The poop test
 A very basic agent test:
@@ -123,22 +90,23 @@ A very basic agent test:
   Note that the justfile + scripts in this project make this
   a little easier.
 
+## custom sandboxes
+I went with saving an existing sandbox as a template. Bit clunky, but only need
+to do once.
+
+Alternatives:
+
+- kit? https://docs.docker.com/ai/sandboxes/customize/kits/
+    - try again now that you've got latest sbx version
+    - how to get API key in safely & without manual intervention?
+- custom env? https://docs.docker.com/ai/sandboxes/agents/custom-environments/
+    - nah have to push to registry
 
 # todo
-- WIP preinstall just + openrouter api key
-    - todo
-        - DONE save sbx as template? https://docs.docker.com/ai/sandboxes/customize/templates/#saving-a-sandbox-as-a-template
-        - clean up docs once you get something working
-        - get rid of openrouter api key env var
-        - rm dockerfile etc
-    - discarded options
-        - custom env? https://docs.docker.com/ai/sandboxes/agents/custom-environments/
-            - nah have to push to registry
-        - kit? https://docs.docker.com/ai/sandboxes/customize/kits/
-            - nah doesn't work (too new?)
 - centralise this proj so that you don't have to copy scripts etc to other proj
     - ie. make a bunch of aliases to run the agents etc in this project
 - add just ask from dwg
 - ability to run 'just quick' tasks within a worktree
     - maybe custom env will solve this
 - add an automated benchmark to test new LLMs/agents/clis
+- maybe: better way to create & run custom sandboxes
