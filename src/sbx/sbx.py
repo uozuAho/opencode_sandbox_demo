@@ -24,8 +24,13 @@ def run_sbx_custom_branch(
     return _sbx("run", sandbox, "--branch", branch, "--", "run", *args)
 
 
-def _sbx(*args: str, check: bool = True, capture_output=False) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(["sbx", *args], check=check, text=True, capture_output=capture_output)
+def _sbx(
+    *args: str, check: bool = True, capture_output=False
+) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        ["sbx", *args], check=check, text=True, capture_output=capture_output
+    )
+
 
 def _default_sandbox_name(cwd: Path | None = None) -> str:
     current_dir = cwd or Path.cwd()

@@ -1,4 +1,3 @@
-
 import typer
 
 from soc_cli.quick import run_quick

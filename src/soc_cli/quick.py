@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import subprocess
-from pathlib import Path
 
 from soc_cli.common import expand_model
 from sbx import sbx
