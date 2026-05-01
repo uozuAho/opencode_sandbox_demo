@@ -1,3 +1,15 @@
-This is a toy project that demonstrates how to use opencode config, agents etc.
+This project aims to:
 
-The toy project is coded in python.
+- provide easy ways to run opencode in a sandbox, in any local project
+- provide convenient commands to do common workflow tasks such as:
+    - ask an agent a quick question
+    - get an agent to perform a quick task
+    - get an agent to follow instructions in a file, working in its own worktree
+    - approve or reject completed worktrees
+
+It currently uses `just` and bash scripts to provide this functionality.
+
+We are currently transitioning to python to replace `just` and bash. `uv` is
+used for python runtime and package management.
+
+For more info, read ./readme.md

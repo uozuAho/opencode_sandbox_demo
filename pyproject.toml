@@ -1,13 +1,25 @@
 [project]
-name = "logparser"
+name = "sandboxed-opencode"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
+description = "Convenient runner for opencode in docker sandboxes"
+readme = "readme.md"
 requires-python = ">=3.13"
-dependencies = []
-
-[dependency-groups]
-dev = [
-    "ruff",
-    "ty",
+package-mode = true
+dependencies = [
+    "ruff>=0.15.12",
+    "ty>=0.0.33",
+    "typer>=0.25.0",
 ]
+
+[project.scripts]
+soc = "soc_cli.main:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+packages = ["src/soc_cli"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/soc_cli"]

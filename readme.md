@@ -1,6 +1,8 @@
-# Opencode demo project
+# Sandboxed opencode runner
 
-A toy coding project to demonstrate sandboxed opencode agents.
+Provides a convenient way to run sandboxed opencode locally, using
+[openrouter](https://openrouter.ai/). Uses
+[docker sandboxes](https://docs.docker.com/ai/sandboxes/).
 
 # quick start
 Install:
@@ -75,14 +77,18 @@ just -l
 ```
 
 
+# WIP New quick start
+I'm transitioning this project from `just` + bash to python.
+
+```sh
+git clone <this repo>
+cd <this repo>
+uv tool install .
+soc --help  # soc should be available everywhere
+```
+
+
 # More info
-
-## The poop test
-A very basic agent test:
-- prompt it to "print poop in the main function"
-- success = print("poop") added somewhere to main
-- follows other instructions in .opencode/agents/coder.md
-
 ## OpenCode basics
 - ./AGENTS.md is fed to all agents
 - ./opencode/agents contains specific agent prompts. To use
@@ -103,10 +109,16 @@ Alternatives:
     - nah have to push to registry
 
 # todo
-- centralise this proj so that you don't have to copy scripts etc to other proj
-    - ie. make a bunch of aliases to run the agents etc in this project
-- add just ask from dwg
+- WIP centralise this proj so that you don't have to copy scripts etc to other
+  proj
+    - WIP port all commands using python
+    - codex plan in plan.md
+    - when done, rm plan.md
+- add ask & quickpath from dwg
+- rename project here + on github to soc?
 - ability to run 'just quick' tasks within a worktree
     - maybe custom env will solve this
 - add an automated benchmark to test new LLMs/agents/clis
+    - do this in another project
 - maybe: better way to create & run custom sandboxes
+    - get rid of initial manual steps
