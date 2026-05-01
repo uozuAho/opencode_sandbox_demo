@@ -14,5 +14,10 @@ def quick(task: str, agent: str = "coder", model_label: str = DEFAULT_MODEL) -> 
     raise typer.Exit(result.returncode)
 
 
+@app.command()
+def dummy():
+    print("yo")
+
+
 if __name__ == "__main__":
     app()
