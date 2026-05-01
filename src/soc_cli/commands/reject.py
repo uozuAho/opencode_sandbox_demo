@@ -27,6 +27,6 @@ def reject(task_path: Path) -> None:
         ["git", "worktree", "remove", "--force", str(worktree_path)], check=True
     )
     subprocess.run(["git", "branch", "-d", task_name], check=True)
-    shutil.rmtree(worktree_path, ignore_errors=False)
+    shutil.rmtree(worktree_path, ignore_errors=True)
     task_path.unlink()
     raise typer.Exit(0)
