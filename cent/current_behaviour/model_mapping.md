@@ -1,8 +1,0 @@
-gptmini: openrouter/openai/gpt-5.4-mini
-glm51: openrouter/z-ai/glm-5.1
-gpt-53-codex: openrouter/openai/gpt-5.3-codex
-sonnet46: openrouter/anthropic/claude-sonnet-4.6
-kimi: openrouter/moonshotai/kimi-k2.5
-gemma4: openrouter/google/gemma-4-31b-it:free
-minimax25: openrouter/minimax/minimax-m2.5:free
-minimax27: openrouter/minimax/minimax-m2.7

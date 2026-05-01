@@ -111,10 +111,13 @@ Alternatives:
 # todo
 - WIP centralise this proj so that you don't have to copy scripts etc to other
   proj
-    - before using agent: do it yourself!
-        - redo all commands using python
-    - codex plan in plan.md, I'm writing wozplan, breaking it into tiny pieces in cent/
-    - when done, rm plan.md, wozplan.md, cent/
+    - WIP extract sbx module
+    - add ruff, ty, add just check-all
+    - add tests for common?
+    - change common.SBX_ROOT to a func
+    - WIP port all commands using python
+    - codex plan in plan.md
+    - when done, rm plan.md
 - add ask & quickpath from dwg
 - rename project here + on github to soc?
 - ability to run 'just quick' tasks within a worktree
