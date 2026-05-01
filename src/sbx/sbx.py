@@ -5,6 +5,11 @@ from pathlib import Path
 CUSTOM_TEMPLATE = "docker.io/library/opencode-openrouter-just:latest"
 
 
+def sbx_root_dir(cwd: Path | None = None):
+    current_dir = cwd or Path.cwd()
+    return current_dir / ".sbx"
+
+
 def expected_sandbox_name(cwd: Path | None = None) -> str:
     current_dir = cwd or Path.cwd()
     return f"opencode-{current_dir.name}".replace("_", "-")

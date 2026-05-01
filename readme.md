@@ -111,8 +111,6 @@ Alternatives:
 # todo
 - WIP centralise this proj so that you don't have to copy scripts etc to other
   proj
-    - add tests for common?
-    - change common.SBX_ROOT to a func
     - WIP port all commands using python
     - codex plan in plan.md
     - when done, rm plan.md

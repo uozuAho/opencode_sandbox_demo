@@ -1,7 +1,3 @@
-from pathlib import Path
-
-
-SBX_ROOT = Path(".sbx/opencode-opencode-demo-worktrees")
 
 
 def expand_model(model: str) -> str:
