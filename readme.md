@@ -57,6 +57,9 @@ Now you have a sandbox template with `just` installed and OpenRouter
 API key configured. Let's do some work!
 
 ```sh
+# copy agents to your project (quirk, see more about this in quirks below)
+cp -r .opencode /path/to/my/project
+
 # ensure just is installed in the sandbox
 soc quick "run just check-all"
 
@@ -80,6 +83,10 @@ soc --help
 
 
 # quirks
+`soc` expects there to be an .opencode folder with agents `coder` and `planner`. If it
+doesn't find them, it falls back to a default agent built into opencode. I might fix
+this at some point.
+
 `sbx` doesn't let you configure where your git worktrees go. They go into .sbx in your
 project. To review work done with `soc task`, look under .sbx for the directory named
 after the task file.
@@ -106,9 +113,8 @@ Alternatives:
 
 
 # todo
-- docs
-    - check what happens when another project doesn't have an .opencode folder
-- add ask & quickpath from dwg
+- maybe: add ask & quickpath from dwg
+    - probably should fix how agents work first
 - change approve/reject to take worktree/branch/task name
     - bonus: autocomplete task names
 - speed up startup: don't check for existing sandbox if it's been checked recently
