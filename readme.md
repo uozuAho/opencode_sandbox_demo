@@ -115,11 +115,12 @@ Alternatives:
 # todo
 - WIP centralise this proj so that you don't have to copy scripts etc to other
   proj
-    - fix run_quick
+    - fix run_quick, test it out
     - fix errors: `uv tool install .`, `soc --help`
+    - put commands in cli subdir
     - WIP port all commands using python
     - codex plan in plan.md
-    - when done, rm plan.md
+    - when done, rm plan.md, just, scripts, update readme
 - add ask & quickpath from dwg
 - rename project here + on github to soc?
 - ability to run 'just quick' tasks within a worktree
