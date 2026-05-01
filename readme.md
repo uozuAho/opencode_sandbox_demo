@@ -116,7 +116,10 @@ Alternatives:
     - codex plan in plan.md, I'm writing wozplan, breaking it into tiny pieces in cent/
     - when done, rm plan.md, wozplan.md, cent/
 - add ask & quickpath from dwg
+- rename project here + on github to soc?
 - ability to run 'just quick' tasks within a worktree
     - maybe custom env will solve this
 - add an automated benchmark to test new LLMs/agents/clis
+    - do this in another project
 - maybe: better way to create & run custom sandboxes
+    - get rid of initial manual steps
