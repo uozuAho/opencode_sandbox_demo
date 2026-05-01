@@ -39,12 +39,12 @@ def _ensure_committed(task_path: Path) -> None:
 def task(task_path: Path, agent: str = "coder", model_label: str = "gptmini") -> None:
     model = expand_model(model_label)
     _ensure_committed(task_path)
-    result = sbx.run_custom_branch(
-        _task_name(task_path),
+    result = sbx.run(
         "--agent",
         agent,
         "--model",
         model,
         f"follow the instructions in {task_path}",
+        branch=_task_name(task_path),
     )
     raise typer.Exit(result.returncode)

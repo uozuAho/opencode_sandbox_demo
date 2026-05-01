@@ -9,10 +9,5 @@ app.command()(quick)
 app.command()(task)
 
 
-@app.command()
-def dummy():
-    print("yo")
-
-
 if __name__ == "__main__":
     app()

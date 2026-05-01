@@ -10,17 +10,14 @@ def sbx_root_dir(cwd: Path | None = None):
     return current_dir / ".sbx"
 
 
-def run(*args: str) -> subprocess.CompletedProcess[str]:
+def run(*args: str, branch: str | None = None) -> subprocess.CompletedProcess[str]:
     sandbox = _default_sandbox_name()
     _ensure_sandbox_exists(sandbox)
-    return _sbx("run", sandbox, "--", "run", *args)
-    # todo branch _sbx("run", sandbox, "--branch", branch, "--", "run", *args)
-
-
-def run_custom_branch(branch: str, *args: str) -> subprocess.CompletedProcess[str]:
-    sandbox = _default_sandbox_name()
-    _ensure_sandbox_exists(sandbox)
-    return _sbx("run", sandbox, "--branch", branch, "--", "run", *args)
+    _args = ["run", sandbox]
+    if branch:
+        _args += ["--branch", branch]
+    _args += ["--", "run", *args]
+    return _sbx(*_args)
 
 
 def _sbx(
