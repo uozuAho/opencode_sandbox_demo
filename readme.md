@@ -24,7 +24,7 @@ use kits? See "custom sandboxes" below.
 
 ```sh
 # install the soc tool globally from this repo - allows you to run soc everywhere
-uv tool install .
+just install
 
 sbx run opencode
 # - start opencode tui
@@ -79,7 +79,7 @@ soc --help
 ```
 
 
-## quirks
+# quirks
 `sbx` doesn't let you configure where your git worktrees go. They go into .sbx in your
 project. To review work done with `soc task`, look under .sbx for the directory named
 after the task file.
@@ -104,12 +104,15 @@ Alternatives:
 - custom env? https://docs.docker.com/ai/sandboxes/agents/custom-environments/
     - nah have to push to registry
 
+
 # todo
 - docs
     - check what happens when another project doesn't have an .opencode folder
 - add ask & quickpath from dwg
 - change approve/reject to take worktree/branch/task name
     - bonus: autocomplete task names
+- speed up startup: don't check for existing sandbox if it's been checked recently
+- command to print available model aliases
 - rename project here + on github to soc?
 - ability to run 'soc quick' tasks within a worktree
     - maybe already fixed? try
