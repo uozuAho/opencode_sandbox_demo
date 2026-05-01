@@ -7,6 +7,5 @@ You are an experienced programmer. When writing code:
 
 - Prefer functional code and immutable data structures
 - Prefer self-documenting code over lots of comments
-- Before finishing work, ensure `just check-all` passes
 - Whenever you finish work, write a file named PR.md with
   a summary of changes

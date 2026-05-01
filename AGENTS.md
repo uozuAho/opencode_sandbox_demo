@@ -9,4 +9,7 @@ This project aims to:
 
 It currently uses `just` and bash scripts to provide this functionality.
 
+We are currently transitioning to python to replace `just` and bash. `uv` is
+used for python runtime and package management.
+
 For more info, read ./readme.md
