@@ -5,7 +5,7 @@ def expand_model(model: str) -> str:
     models = {
         "gptmini": "openrouter/openai/gpt-5.4-mini",
         "glm51": "openrouter/z-ai/glm-5.1",
-        "gpt-53-codex": "openrouter/openai/gpt-5.3-codex",
+        "codex": "openrouter/openai/gpt-5.3-codex",
         "sonnet46": "openrouter/anthropic/claude-sonnet-4.6",
         "kimi": "openrouter/moonshotai/kimi-k2.5",
         "gemma4": "openrouter/google/gemma-4-31b-it:free",
