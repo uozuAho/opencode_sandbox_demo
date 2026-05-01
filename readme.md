@@ -77,6 +77,17 @@ just -l
 ```
 
 
+# WIP New quick start
+I'm transitioning this project from `just` + bash to python.
+
+```sh
+git clone <this repo>
+cd <this repo>
+uv tool install .
+soc --help  # soc should be available everywhere
+```
+
+
 # More info
 ## OpenCode basics
 - ./AGENTS.md is fed to all agents
@@ -101,8 +112,7 @@ Alternatives:
 - WIP centralise this proj so that you don't have to copy scripts etc to other
   proj
     - before using agent: do it yourself!
-        - figure out how to install centrally
-            - `uv tool install`? install from proj dir? how to uninstall?
+        - redo all commands using python
     - codex plan in plan.md, I'm writing wozplan, breaking it into tiny pieces in cent/
     - when done, rm plan.md, wozplan.md, cent/
 - add ask & quickpath from dwg
