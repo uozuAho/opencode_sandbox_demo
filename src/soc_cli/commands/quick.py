@@ -9,5 +9,5 @@ from soc_cli.common import expand_model, DEFAULT_MODEL
 
 def quick(task: str, agent: str = "coder", model_label: str = DEFAULT_MODEL) -> None:
     model = expand_model(model_label)
-    result = sbx.run("--agent", agent, "--model", model, task)
+    result = sbx.run(agent=agent, model_label=model, prompt=task)
     raise typer.Exit(result.returncode)

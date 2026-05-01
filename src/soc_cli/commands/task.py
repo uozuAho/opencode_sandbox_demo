@@ -38,15 +38,15 @@ def _ensure_committed(task_path: Path) -> None:
         raise typer.Exit(1)
 
 
-def task(task_path: Path, agent: str = "coder", model_label: str = DEFAULT_MODEL) -> None:
+def task(
+    task_path: Path, agent: str = "coder", model_label: str = DEFAULT_MODEL
+) -> None:
     model = expand_model(model_label)
     _ensure_committed(task_path)
     result = sbx.run(
-        "--agent",
-        agent,
-        "--model",
-        model,
-        f"follow the instructions in {task_path}",
+        agent=agent,
+        model_label=model,
+        prompt=f"follow the instructions in {task_path}",
         branch=_task_name(task_path),
     )
     raise typer.Exit(result.returncode)

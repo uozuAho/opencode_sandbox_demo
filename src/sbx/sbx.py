@@ -10,13 +10,13 @@ def sbx_root_dir(cwd: Path | None = None):
     return current_dir / ".sbx"
 
 
-def run(*args: str, branch: str | None = None) -> subprocess.CompletedProcess[str]:
+def run(agent: str, model_label: str, prompt: str, branch: str | None = None) -> subprocess.CompletedProcess[str]:
     sandbox = _default_sandbox_name()
     _ensure_sandbox_exists(sandbox)
     _args = ["run", sandbox]
     if branch:
         _args += ["--branch", branch]
-    _args += ["--", "run", *args]
+    _args += ["--", "run", "--agent", agent, "--model", model_label, prompt]
     return _sbx(*_args)
 
 
