@@ -17,6 +17,12 @@ def run(*args: str) -> subprocess.CompletedProcess[str]:
     # todo branch _sbx("run", sandbox, "--branch", branch, "--", "run", *args)
 
 
+def run_custom_branch(branch: str, *args: str) -> subprocess.CompletedProcess[str]:
+    sandbox = _default_sandbox_name()
+    _ensure_sandbox_exists(sandbox)
+    return _sbx("run", sandbox, "--branch", branch, "--", "run", *args)
+
+
 def _sbx(
     *args: str, check: bool = True, capture_output=False
 ) -> subprocess.CompletedProcess[str]:
