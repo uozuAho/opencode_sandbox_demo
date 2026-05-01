@@ -8,8 +8,6 @@ from soc_cli.commands.task import task
 
 app = typer.Typer()
 
-print("poop")
-
 app.command()(quick)
 app.command()(plan)
 app.command()(approve)
