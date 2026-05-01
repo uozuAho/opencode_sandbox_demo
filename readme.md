@@ -115,7 +115,6 @@ Alternatives:
 # todo
 - WIP centralise this proj so that you don't have to copy scripts etc to other
   proj
-    - put commands in cli subdir
     - WIP port all commands using python
     - codex plan in plan.md
     - when done, rm plan.md, just, scripts, update readme
