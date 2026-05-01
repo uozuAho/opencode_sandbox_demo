@@ -85,6 +85,10 @@ git clone <this repo>
 cd <this repo>
 uv tool install .
 soc --help  # soc should be available everywhere
+
+# running soc while developing
+uv run soc --help
+# `just` can forward args but only from v1.29, which I don't have
 ```
 
 
@@ -111,6 +115,8 @@ Alternatives:
 # todo
 - WIP centralise this proj so that you don't have to copy scripts etc to other
   proj
+    - fix run_quick
+    - fix errors: `uv tool install .`, `soc --help`
     - WIP port all commands using python
     - codex plan in plan.md
     - when done, rm plan.md
