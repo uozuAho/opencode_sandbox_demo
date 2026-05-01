@@ -1,5 +1,4 @@
 # Summary
 
-- Ported the quick runner from `scripts/quick.sh` to Python.
-- Added a `soc quick` command that expands model labels and invokes `sbx` via `subprocess.run`.
-- Kept sandbox creation/execution behavior in the shared `sbx` helper.
+- Moved the Typer `quick` command and its `run_quick` helper into `src/soc_cli/commands/`.
+- Updated the app entrypoint to register the relocated command implementation.
