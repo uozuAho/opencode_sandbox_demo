@@ -12,7 +12,7 @@ def _sbx_root_dir(cwd: Path):
 def worktrees_dir(cwd: Path):
     sandbox_name = _default_sandbox_name(cwd)
     sbx_root = _sbx_root_dir(cwd)
-    return sbx_root/f"{sandbox_name}-worktrees"
+    return sbx_root / f"{sandbox_name}-worktrees"
 
 
 def run(
