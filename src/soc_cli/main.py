@@ -5,7 +5,7 @@ app = Typer()
 
 @app.command()
 def main() -> None:
-    pass
+    print("hello from soc")
 
 
 if __name__ == "__main__":

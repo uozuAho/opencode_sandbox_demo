@@ -101,9 +101,6 @@ Alternatives:
 - WIP centralise this proj so that you don't have to copy scripts etc to other
   proj
     - before using agent: do it yourself!
-        - scaffold uv project. see plan.md
-            - want: Typer, src layout, package metadata
-            - done when u can run `uv run soc --help` and get Typer help
         - figure out how to install centrally
             - `uv tool install`? install from proj dir? how to uninstall?
     - codex plan in plan.md, I'm writing wozplan, breaking it into tiny pieces in cent/
