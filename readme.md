@@ -116,10 +116,13 @@ Alternatives:
 - WIP centralise this proj so that you don't have to copy scripts etc to other
   proj
     - WIP port all commands using python
+        - test task, approve, reject
     - when done, rm plan.md, just, scripts
     - update readme: .opencode need coder agent?, soc commands
         - idiosyn: creates .sbx dir in your project, puts worktrees there
 - add ask & quickpath from dwg
+- change approve/reject to take worktree/branch/task name
+    - bonus: autocomplete
 - rename project here + on github to soc?
 - ability to run 'soc quick' tasks within a worktree
     - maybe already fixed? try

@@ -6,6 +6,8 @@ from pathlib import Path
 
 import typer
 
+from sbx import sbx
+
 
 def _task_name(task_path: Path) -> str:
     return task_path.stem
@@ -17,7 +19,7 @@ def approve(task_path: Path, commit_msg: str) -> None:
         raise typer.Exit(1)
 
     task_name = _task_name(task_path)
-    worktree_path = task_path.parent.parent / task_name
+    worktree_path = sbx.worktrees_dir(Path.cwd())
 
     subprocess.run(
         ["git", "merge", "--no-ff", task_name, "-m", commit_msg],

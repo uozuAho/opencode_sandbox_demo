@@ -6,6 +6,8 @@ from pathlib import Path
 
 import typer
 
+from sbx import sbx
+
 
 def _task_name(task_path: Path) -> str:
     return task_path.stem
@@ -17,7 +19,7 @@ def reject(task_path: Path) -> None:
         raise typer.Exit(1)
 
     task_name = _task_name(task_path)
-    worktree_path = task_path.parent.parent / task_name
+    worktree_path = sbx.worktrees_dir(Path.cwd())
 
     subprocess.run(
         ["git", "worktree", "remove", "--force", str(worktree_path)], check=True

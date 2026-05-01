@@ -4,9 +4,15 @@ from pathlib import Path
 _CUSTOM_TEMPLATE_IMAGE = "docker.io/library/opencode-openrouter-just:latest"
 
 
-def sbx_root_dir(cwd: Path | None = None):
-    current_dir = cwd or Path.cwd()
+def _sbx_root_dir(cwd: Path):
+    current_dir = cwd
     return current_dir / ".sbx"
+
+
+def worktrees_dir(cwd: Path):
+    sandbox_name = _default_sandbox_name(cwd)
+    sbx_root = _sbx_root_dir(cwd)
+    return sbx_root/f"{sandbox_name}-worktrees"
 
 
 def run(
