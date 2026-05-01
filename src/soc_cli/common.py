@@ -1,5 +1,3 @@
-
-
 def expand_model(model: str) -> str:
     models = {
         "gptmini": "openrouter/openai/gpt-5.4-mini",
