@@ -1,4 +1,8 @@
 import subprocess
+from pathlib import Path
+
+
+CUSTOM_TEMPLATE = "docker.io/library/opencode-openrouter-just:latest"
 
 
 def expected_sandbox_name(cwd: Path | None = None) -> str:
@@ -14,7 +18,9 @@ def ensure_sandbox_exists(expected_sandbox_name: str) -> None:
     print(f"Expected sandbox exists: {expected_sandbox_name}")
 
 
-def run_sbx_custom(expected_sandbox_name: str, *args: str) -> subprocess.CompletedProcess[str]:
+def run_sbx_custom(
+    expected_sandbox_name: str, *args: str
+) -> subprocess.CompletedProcess[str]:
     ensure_sandbox_exists(expected_sandbox_name)
     return _sbx("run", expected_sandbox_name, "--", "run", *args)
 

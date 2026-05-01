@@ -1,3 +1,8 @@
+check-all:
+    uv run ruff format
+    uv run ruff check --fix
+    uv run ty check
+
 # get the planning agent to write up an implementation plan
 plan PROMPT MODEL='gptmini':
   ./scripts/plan.sh planner {{MODEL}} "{{PROMPT}}"

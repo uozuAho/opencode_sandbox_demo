@@ -111,8 +111,6 @@ Alternatives:
 # todo
 - WIP centralise this proj so that you don't have to copy scripts etc to other
   proj
-    - WIP extract sbx module
-    - add ruff, ty, add just check-all
     - add tests for common?
     - change common.SBX_ROOT to a func
     - WIP port all commands using python

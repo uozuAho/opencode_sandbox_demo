@@ -2,7 +2,6 @@ from pathlib import Path
 
 
 SBX_ROOT = Path(".sbx/opencode-opencode-demo-worktrees")
-CUSTOM_TEMPLATE = "docker.io/library/opencode-openrouter-just:latest"
 
 
 def expand_model(model: str) -> str:
