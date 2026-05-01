@@ -115,8 +115,9 @@ Alternatives:
 # todo
 - WIP centralise this proj so that you don't have to copy scripts etc to other
   proj
-    - WIP port all commands using python
+    - extract DEFAULT MODEL to common or similar
     - change sbx run api, eg sbx.run(agent="", model="", prompt="")
+    - WIP port all commands using python
     - when done, rm plan.md, just, scripts
     - update readme: .opencode need coder agent?, soc commands
         - idiosyn: creates .sbx dir in your project, puts worktrees there
