@@ -14,6 +14,9 @@ def _task_name(task_path: Path) -> str:
 
 
 def reject(task_path: Path) -> None:
+    """
+    Delete the worktree corresponding to the given task file.
+    """
     if not task_path.exists():
         typer.echo(f"Error: {task_path} does not exist")
         raise typer.Exit(1)

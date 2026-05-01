@@ -41,6 +41,10 @@ def _ensure_committed(task_path: Path) -> None:
 def task(
     task_path: Path, agent: str = "coder", model_label: str = DEFAULT_MODEL
 ) -> None:
+    """
+    Use the coder agent to perform the task described in the given path.
+    Work is done in a git worktree placed under .sbx/
+    """
     model = expand_model(model_label)
     _ensure_committed(task_path)
     result = sbx.run(

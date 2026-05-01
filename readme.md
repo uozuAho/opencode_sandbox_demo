@@ -1,8 +1,8 @@
-# Sandboxed opencode runner
+# `soc`: Sandboxed opencode runner
 
-Provides a convenient way to run sandboxed opencode locally, using
-[openrouter](https://openrouter.ai/). Uses
-[docker sandboxes](https://docs.docker.com/ai/sandboxes/).
+Provides a convenient way to run sandboxed [opencode](https://opencode.ai/) locally, using
+[openrouter](https://openrouter.ai/). Uses [docker sandboxes](https://docs.docker.com/ai/sandboxes/),
+AKA `sbx`.
 
 # quick start
 Install:
@@ -14,12 +14,18 @@ Install:
 Get some [openrouter](https://openrouter.ai/) credits + API key, then:
 
 
-## first run only - create sandbox template with `just` and API key
+## first run only - install `soc` and create the sandbox template
+This creates a template image used as a base for sandboxes. It installs
+`just`, and sets up your openrouter API key.
+
 Note: this requires one time manual work and annoying scripts to
 ensure the expected sandbox exists. TODO: make this easier, maybe
 use kits? See "custom sandboxes" below.
 
 ```sh
+# install the soc tool globally from this repo - allows you to run soc everywhere
+uv tool install .
+
 sbx run opencode
 # - start opencode tui
 # - select /connect
@@ -52,44 +58,31 @@ API key configured. Let's do some work!
 
 ```sh
 # ensure just is installed in the sandbox
-just quick "run just check-all"
+soc quick "run just check-all"
 
 # check instructions are correct
-just quick "list all your instructions"
-
-# run "the poop test": check if models can do what they're told:
-# quick run in the current working branch
-just quick "print poop in the main function"
+soc quick "list all your instructions"
 
 # do a longer task in a git worktree
 echo "print poop in the main function" > tasks/poop.md
 git add . && git commit -m "add poop task"
-just task tasks/poop.md
+soc task tasks/poop.md
 
 # once you're happy with the change, commit it, then:
-just approve tasks/poop.md "added poop"
+soc approve tasks/poop.md "added poop"
 
 # or if you don't like it, reject and delete it
-just reject tasks/poop.md
+soc reject tasks/poop.md
 
 # for more, see
-just -l
+soc --help
 ```
 
 
-# WIP New quick start
-I'm transitioning this project from `just` + bash to python.
-
-```sh
-git clone <this repo>
-cd <this repo>
-uv tool install .
-soc --help  # soc should be available everywhere
-
-# running soc while developing
-uv run soc --help
-# `just` can forward args but only from v1.29, which I don't have
-```
+## quirks
+`sbx` doesn't let you configure where your git worktrees go. They go into .sbx in your
+project. To review work done with `soc task`, look under .sbx for the directory named
+after the task file.
 
 
 # More info
@@ -97,12 +90,11 @@ uv run soc --help
 - ./AGENTS.md is fed to all agents
 - ./opencode/agents contains specific agent prompts. To use
   a specific agent, run `opencode run --agent AGENT "prompt"`.
-  Note that the justfile + scripts in this project make this
-  a little easier.
+  `soc` is intended to make this a bit easier.
 
 ## custom sandboxes
-I went with saving an existing sandbox as a template. Bit clunky, but only need
-to do once.
+I went with saving an existing sandbox as a template. It's a bit clunky,
+but you only need to do it once.
 
 Alternatives:
 
@@ -113,16 +105,11 @@ Alternatives:
     - nah have to push to registry
 
 # todo
-- WIP centralise this proj so that you don't have to copy scripts etc to other
-  proj
-    - WIP port all commands using python
-        - test task, approve, reject
-    - when done, rm plan.md, just, scripts
-    - update readme: .opencode need coder agent?, soc commands
-        - idiosyn: creates .sbx dir in your project, puts worktrees there
+- docs
+    - check what happens when another project doesn't have an .opencode folder
 - add ask & quickpath from dwg
 - change approve/reject to take worktree/branch/task name
-    - bonus: autocomplete
+    - bonus: autocomplete task names
 - rename project here + on github to soc?
 - ability to run 'soc quick' tasks within a worktree
     - maybe already fixed? try
@@ -130,3 +117,5 @@ Alternatives:
     - do this in another project
 - maybe: better way to create & run custom sandboxes
     - get rid of initial manual steps
+- maybe: layered config
+    - soc.toml

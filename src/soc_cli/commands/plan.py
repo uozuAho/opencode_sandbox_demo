@@ -7,7 +7,10 @@ from sbx import sbx
 from soc_cli.common import expand_model, DEFAULT_MODEL
 
 
-def plan(prompt: str, agent: str = "coder", model_label: str = DEFAULT_MODEL) -> None:
+def plan(prompt: str, agent: str = "planner", model_label: str = DEFAULT_MODEL) -> None:
+    """
+    Use the planner agent to write a plan (no code).
+    """
     model = expand_model(model_label)
     result = sbx.run(agent=agent, model=model, prompt=prompt)
     raise typer.Exit(result.returncode)

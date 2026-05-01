@@ -14,6 +14,9 @@ def _task_name(task_path: Path) -> str:
 
 
 def approve(task_path: Path, commit_msg: str) -> None:
+    """
+    Merge the worktree for the given task file, delete the worktree + task file.
+    """
     if not task_path.exists():
         typer.echo(f"Error: {task_path} does not exist")
         raise typer.Exit(1)

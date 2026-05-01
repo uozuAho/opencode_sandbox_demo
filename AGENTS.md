@@ -1,16 +1,12 @@
-This project aims to:
+This project provides a convenient cli for running opencode in docker sandboxes.
 
-- provide easy ways to run opencode in a sandbox, in any local project
-- provide convenient commands to do common workflow tasks such as:
-    - ask an agent a quick question
-    - get an agent to perform a quick task
-    - get an agent to follow instructions in a file, working in its own worktree
-    - approve or reject completed worktrees
+The cli app uses Typer as the app framework. `uv` is used
+for management of the python runtime and packages.
 
-It currently uses `just` and bash scripts to provide this functionality.
-
-We are currently transitioning to a python cli app to replace `just` and bash. `uv` is
-used for python runtime and package management. The cli app is in ./src/soc_cli and
-uses Typer as the app framework.
+Project structure:
+./.opencode/   : agent configuration for use in this project
+./src          : all python source code
+./src/sbx      : wrapper around sbx
+./src/soc_cli  : cli implementation
 
 For more info, read ./readme.md
