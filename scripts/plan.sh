@@ -10,18 +10,4 @@ PROMPT=$3
 
 MODEL=$(expandModel $MODEL_LABEL)
 
-if [ -f "plan.md" ]; then
-  printf 'Warning: plan.md already exists and will be overwritten.\n'
-  printf 'Continue? [y/N] '
-  read -r reply
-  case "$reply" in
-    y|Y|yes|YES)
-      ;;
-    *)
-      printf 'Aborted.\n'
-      exit 1
-      ;;
-  esac
-fi
-
 runSbxCustom --agent $AGENT --model $MODEL \"$PROMPT\"
