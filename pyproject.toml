@@ -1,6 +1,6 @@
 [project]
 name = "sandboxed-opencode"
-version = "0.1.0"
+version = "0.1.1"
 description = "Convenient runner for opencode in docker sandboxes"
 readme = "readme.md"
 requires-python = ">=3.13"
@@ -19,7 +19,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build]
-packages = ["src/soc_cli"]
+packages = ["src/soc_cli", "src/sbx"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/soc_cli"]
+packages = ["src/soc_cli", "src/sbx"]
