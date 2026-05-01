@@ -19,7 +19,9 @@ def reject(task_path: Path) -> None:
         raise typer.Exit(1)
 
     task_name = _task_name(task_path)
-    worktree_path = sbx.worktrees_dir(Path.cwd())
+    worktree_path = sbx.worktrees_dir(Path.cwd()) / task_name
+
+    assert worktree_path.exists()
 
     subprocess.run(
         ["git", "worktree", "remove", "--force", str(worktree_path)], check=True

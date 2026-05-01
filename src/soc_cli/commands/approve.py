@@ -19,7 +19,9 @@ def approve(task_path: Path, commit_msg: str) -> None:
         raise typer.Exit(1)
 
     task_name = _task_name(task_path)
-    worktree_path = sbx.worktrees_dir(Path.cwd())
+    worktree_path = sbx.worktrees_dir(Path.cwd())/task_name
+
+    assert worktree_path.exists()
 
     subprocess.run(
         ["git", "merge", "--no-ff", task_name, "-m", commit_msg],
