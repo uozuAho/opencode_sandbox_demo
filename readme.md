@@ -119,10 +119,11 @@ Alternatives:
     - codex plan in plan.md
     - when done, rm plan.md, just, scripts
     - update readme: .opencode need coder agent?, soc commands
+        - idiosyn: creates .sbx dir in your project, puts worktrees there
 - add ask & quickpath from dwg
 - rename project here + on github to soc?
-- ability to run 'just quick' tasks within a worktree
-    - maybe custom env will solve this
+- ability to run 'soc quick' tasks within a worktree
+    - maybe already fixed? try
 - add an automated benchmark to test new LLMs/agents/clis
     - do this in another project
 - maybe: better way to create & run custom sandboxes
