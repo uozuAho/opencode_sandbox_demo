@@ -3,7 +3,7 @@ name = "sandboxed-opencode"
 version = "0.1.0"
 description = "Convenient runner for opencode in docker sandboxes"
 readme = "readme.md"
-requires-python = ">=3.14"
+requires-python = ">=3.13"
 dependencies = [
     "typer>=0.25.0",
 ]

@@ -100,7 +100,6 @@ Alternatives:
 # todo
 - WIP centralise this proj so that you don't have to copy scripts etc to other
   proj
-    - change python version to 3.13
     - before using agent: do it yourself!
         - scaffold uv project. see plan.md
             - want: Typer, src layout, package metadata
