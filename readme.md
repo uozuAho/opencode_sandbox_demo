@@ -117,7 +117,8 @@ Alternatives:
   proj
     - WIP port all commands using python
     - codex plan in plan.md
-    - when done, rm plan.md, just, scripts, update readme
+    - when done, rm plan.md, just, scripts
+    - update readme: .opencode need coder agent?, soc commands
 - add ask & quickpath from dwg
 - rename project here + on github to soc?
 - ability to run 'just quick' tasks within a worktree
