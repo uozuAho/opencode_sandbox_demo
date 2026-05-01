@@ -22,7 +22,9 @@ def _ensure_committed(task_path: Path) -> None:
         text=True,
     )
     if committed.returncode != 0:
-        typer.echo(f"Error: {task_path} has not been committed to the current working tree")
+        typer.echo(
+            f"Error: {task_path} has not been committed to the current working tree"
+        )
         raise typer.Exit(1)
 
     clean = subprocess.run(
