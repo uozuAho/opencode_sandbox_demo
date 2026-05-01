@@ -7,7 +7,7 @@ import typer
 
 from sbx import sbx
 
-from soc_cli.common import expand_model
+from soc_cli.common import expand_model, DEFAULT_MODEL
 
 
 def _task_name(task_path: Path) -> str:
@@ -38,7 +38,7 @@ def _ensure_committed(task_path: Path) -> None:
         raise typer.Exit(1)
 
 
-def task(task_path: Path, agent: str = "coder", model_label: str = "gptmini") -> None:
+def task(task_path: Path, agent: str = "coder", model_label: str = DEFAULT_MODEL) -> None:
     model = expand_model(model_label)
     _ensure_committed(task_path)
     result = sbx.run(

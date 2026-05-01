@@ -4,9 +4,7 @@ import typer
 
 from sbx import sbx
 
-from soc_cli.common import expand_model
-
-DEFAULT_MODEL = "gptmini"
+from soc_cli.common import expand_model, DEFAULT_MODEL
 
 
 def quick(task: str, agent: str = "coder", model_label: str = DEFAULT_MODEL) -> None:
