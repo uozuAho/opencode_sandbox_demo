@@ -1,7 +1,6 @@
 import subprocess
 from pathlib import Path
 
-
 _CUSTOM_TEMPLATE_IMAGE = "docker.io/library/opencode-openrouter-just:latest"
 
 
@@ -10,13 +9,13 @@ def sbx_root_dir(cwd: Path | None = None):
     return current_dir / ".sbx"
 
 
-def run(agent: str, model_label: str, prompt: str, branch: str | None = None) -> subprocess.CompletedProcess[str]:
+def run(agent: str, model: str, prompt: str, branch: str | None = None) -> subprocess.CompletedProcess[str]:
     sandbox = _default_sandbox_name()
     _ensure_sandbox_exists(sandbox)
     _args = ["run", sandbox]
     if branch:
         _args += ["--branch", branch]
-    _args += ["--", "run", "--agent", agent, "--model", model_label, prompt]
+    _args += ["--", "run", "--agent", agent, "--model", model, prompt]
     return _sbx(*_args)
 
 

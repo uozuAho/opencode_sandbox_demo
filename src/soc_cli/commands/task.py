@@ -45,7 +45,7 @@ def task(
     _ensure_committed(task_path)
     result = sbx.run(
         agent=agent,
-        model_label=model,
+        model=model,
         prompt=f"follow the instructions in {task_path}",
         branch=_task_name(task_path),
     )
