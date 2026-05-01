@@ -115,7 +115,6 @@ Alternatives:
 # todo
 - WIP centralise this proj so that you don't have to copy scripts etc to other
   proj
-    - sbx: merge run, run branch
     - fix errors: `uv tool install .`, `soc --help`
     - put commands in cli subdir
     - WIP port all commands using python
