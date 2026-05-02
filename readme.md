@@ -41,7 +41,7 @@ sbx exec -it opencode-soc sudo apt-get install -y just
 sbx policy rm network --resource archive.ubuntu.com
 
 # check just + api key are working - get agent to run a just task
-sbx policy allow network openrouter.ai
+sbx policy allow network "openrouter.ai,files.pythonhosted.org,pypi.org"
 sbx run opencode -- run --model openrouter/openai/gpt-5.4-mini "run just check-all"
 
 # save as a template
