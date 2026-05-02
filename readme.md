@@ -115,6 +115,8 @@ Alternatives:
 # todo
 - maybe: add ask & quickpath from dwg
     - probably should fix how agents work first
+        - read about opencode agents, subagents. just let projects define their
+          own, don't use any here?
 - change approve/reject to take worktree/branch/task name
     - bonus: autocomplete task names
 - speed up startup: don't check for existing sandbox if it's been checked recently
