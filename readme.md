@@ -33,15 +33,16 @@ sbx run opencode
 # - enter your api key
 # - exit
 
-# install just in the sandbox
+# install just in the sandbox. If this breaks, run sbx exec -it opencode-soc bash
+# then update & install
 sbx policy allow network archive.ubuntu.com
 sbx exec -it opencode-soc sudo apt-get update
 sbx exec -it opencode-soc sudo apt-get install -y just
 sbx policy rm network --resource archive.ubuntu.com
 
 # check just + api key are working - get agent to run a just task
-sbx run opencode -- \
-  run --model openrouter/openai/gpt-5.4-mini "run just check-all"
+sbx policy allow network openrouter.ai
+sbx run opencode -- run --model openrouter/openai/gpt-5.4-mini "run just check-all"
 
 # save as a template
 sbx template save opencode-soc opencode-openrouter-just
